@@ -1,0 +1,44 @@
+//in the view controller, 
+//add UITextFieldDelegate as an extended class
+//
+//this line links the declared text field to the view
+//self.InputPrice.delegate = self
+
+
+class ViewController: UIViewController, UITextFieldDelegate {
+
+
+
+      override func viewDidLoad() {
+
+        super.viewDidLoad()
+
+        
+
+        /*------------(3)--------------------*/
+
+        self.InputPrice.delegate = self
+
+        
+
+    }
+    
+    
+    //this gets added in the view controller to make the magic happen
+    
+    /*---to hide a keyboard once you click away---------------*/
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        self.view.endEditing(true)
+
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+
+        InputPrice.resignFirstResponder()
+
+        return (true)
+
+    }
+
